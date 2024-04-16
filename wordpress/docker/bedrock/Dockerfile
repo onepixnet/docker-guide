@@ -67,6 +67,9 @@ COPY supervisor/supervisord.conf /etc/supervisord.conf
 # Download bedrock
 RUN git clone https://github.com/roots/bedrock /var/www/bedrock
 
+# Link theme
+RUN ln -s /var/www/themes/main /var/www/bedrock/web/app/themes/main
+
 # WordPress CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x wp-cli.phar \
