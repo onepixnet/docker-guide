@@ -28,6 +28,7 @@ services:
     build:
       context: docker/bedrock
     container_name: bedrock_${APP_NAME}
+    user: "${USER}:${GROUP}"
     profiles:
       - local
     restart: always

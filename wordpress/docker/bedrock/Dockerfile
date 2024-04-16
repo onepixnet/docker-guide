@@ -1,4 +1,4 @@
-FROM php:8.2-fpm as base
+FROM php:8.2-fpm
 
 # Install essential packages
 RUN apt-get update \
