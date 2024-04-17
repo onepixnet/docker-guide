@@ -45,3 +45,20 @@ services:
       - mysql
     networks:
       - app-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_${APP_NAME}
+    restart: always
+    profiles:
+      - local
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8081:80
+    networks:
+      - app-network
